@@ -1,0 +1,20 @@
+Lab 5 – Small Language Model
+
+Author: Robert Rekefors
+Course: Kandidatkurs i programmering
+
+Purpose
+
+The goal of this lab was to implement a small language model in C++. The program reads a text file, analyzes statistical relationships between characters (k-grams), and generates new text based on these learned probabilities.
+
+Method
+
+The model was implemented using two main classes: LanguageModel and TextGenerator. The LanguageModel counts the occurrences of each k-length sequence and computes transition probabilities. The TextGenerator uses random sampling to generate new text. The program is built with a Makefile and run from the command line.
+
+Results
+
+The model successfully generates text that statistically resembles the training data. When trained on large text samples such as Moby Dick, it produces readable sequences of English words. The program works for arbitrary values of k and text length.
+
+Conclusion
+
+The lab demonstrates how statistical models can capture basic language patterns using simple frequency analysis and random generation.
