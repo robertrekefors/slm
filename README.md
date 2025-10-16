@@ -48,6 +48,12 @@ main.cpp handles command-line input and overall control.
 
 Uses std::map for frequency storage and std::random for sampling.
 
+This project was developed as part of the Bachelor Programming Course and demonstrates how a simple probabilistic language model can be implemented in C++.
+Git was used throughout the development process for version control, and GitHub served as the platform for sharing and publishing the project.
+
+By organizing the code into separate classes, using a Makefile for compilation, and providing clear documentation through README and report files, the project fulfills all requirements stated in the lab instructions.
+The work illustrates how programming, statistics, and systematic version control can be combined to create a complete and well-structured software project.
+
 Author
 
 Robert Rekefors
