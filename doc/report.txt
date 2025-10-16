@@ -1,20 +1,24 @@
-Lab 5 – Small Language Model
+Laboration 5 – Liten språkmodell
+Kurs: Kandidatkurs i programmering
+Författare: Robert Rekefors
 
-Author: Robert Rekefors
-Course: Kandidatkurs i programmering
+Syfte:
+Syftet med laborationen var att implementera en enkel språkmodell i C++ som kan analysera textdata och generera ny text med liknande statistiska egenskaper. Projektet visar hur sannolikhetsbaserad textgenerering kan genomföras med hjälp av datastrukturer och slumpmässiga processer.
 
-Purpose
+Metod:
+Programmet bygger på en modell som analyserar k-grams, det vill säga sekvenser av k tecken, i en indatafil. För varje k-gram beräknas frekvensen av vilka tecken som följer. Dessa frekvenser används sedan för att generera ny text genom stokastiskt urval baserat på sannolikhetsfördelningar. 
+Koden är uppdelad i två huvudklasser:
+- LanguageModel: bygger upp frekvenstabeller och sannolikheter.
+- TextGenerator: använder modellen för att skapa ny text.
+En Makefile används för att automatisera kompileringen, och Git/GitHub används för versionshantering.
 
-The goal of this lab was to implement a small language model in C++. The program reads a text file, analyzes statistical relationships between characters (k-grams), and generates new text based on these learned probabilities.
+Resultat:
+Programmet kan generera text som påminner om träningsmaterialet, exempelvis Moby Dick. Genom att justera k-värdet kan man kontrollera hur mycket sammanhang eller slump programmet bevarar – små värden ger mer slumpmässig text, medan större värden ger mer sammanhängande meningar. 
+Körningen sker med kommandot:
+./slm <k> <filnamn> <textlängd>
 
-Method
+Diskussion:
+Arbetet visar hur språkmodellering på teckennivå kan implementeras på ett enkelt men effektivt sätt. Projektet illustrerar även sambandet mellan datastruktur, sannolikhet och programmering. En tydlig kodstruktur, Makefile, dokumentation och Git-historik har säkerställt god programdesign och spårbar utveckling.
 
-The model was implemented using two main classes: LanguageModel and TextGenerator. The LanguageModel counts the occurrences of each k-length sequence and computes transition probabilities. The TextGenerator uses random sampling to generate new text. The program is built with a Makefile and run from the command line.
-
-Results
-
-The model successfully generates text that statistically resembles the training data. When trained on large text samples such as Moby Dick, it produces readable sequences of English words. The program works for arbitrary values of k and text length.
-
-Conclusion
-
-The lab demonstrates how statistical models can capture basic language patterns using simple frequency analysis and random generation.
+Slutsats:
+Laborationen uppfyller samtliga krav och visar på förståelse för grundläggande språkmodellering och programutveckling i C++.
