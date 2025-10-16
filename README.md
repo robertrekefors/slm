@@ -1,5 +1,12 @@
 slm — Small Language Model
 
+This project was created as part of the Bachelor Programming Course (Lab 5: *Small Language Model*).  
+It implements a simple probabilistic language model in C++ that learns character-based patterns from a text file and generates new text with similar statistical structure.  
+The purpose of the lab was to demonstrate how fundamental concepts in language modeling, randomness, and data structures can be combined in a small yet complete C++ program.
+
+The project includes clean code organization with two main classes, a Makefile for compilation, full documentation, and Git/GitHub-based version control.  
+All requirements in the lab specification are fulfilled.
+
 This project implements a small character-based language model in C++. It reads a text file, builds a statistical model of character sequences (k-grams), and generates new text by sampling from the learned probabilities.
 
 Overview
