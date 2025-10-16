@@ -1,24 +1,24 @@
-Laboration 5 – Liten språkmodell
-Kurs: Kandidatkurs i programmering
-Författare: Robert Rekefors
+Lab 5 – Small Language Model
+Course: Bachelor Programming Course
+Author: Robert Rekefors
 
-Syfte:
-Syftet med laborationen var att implementera en enkel språkmodell i C++ som kan analysera textdata och generera ny text med liknande statistiska egenskaper. Projektet visar hur sannolikhetsbaserad textgenerering kan genomföras med hjälp av datastrukturer och slumpmässiga processer.
+Purpose:
+The purpose of this lab was to implement a simple probabilistic language model in C++ that analyzes text data and generates new text with similar statistical properties. The project demonstrates how random processes and data structures can be combined to produce text generation based on probability.
 
-Metod:
-Programmet bygger på en modell som analyserar k-grams, det vill säga sekvenser av k tecken, i en indatafil. För varje k-gram beräknas frekvensen av vilka tecken som följer. Dessa frekvenser används sedan för att generera ny text genom stokastiskt urval baserat på sannolikhetsfördelningar. 
-Koden är uppdelad i två huvudklasser:
-- LanguageModel: bygger upp frekvenstabeller och sannolikheter.
-- TextGenerator: använder modellen för att skapa ny text.
-En Makefile används för att automatisera kompileringen, och Git/GitHub används för versionshantering.
+Method:
+The program is based on k-grams, which are sequences of k consecutive characters in the input text. For each k-gram, the frequency of following characters is calculated and stored. These frequencies are then used to generate new text through stochastic sampling based on the observed probabilities.
+The code is organized into two main classes:
+- LanguageModel: builds frequency tables and probability distributions.
+- TextGenerator: generates new text based on the model.
+A Makefile is used to automate compilation, and Git/GitHub are used for version control.
 
-Resultat:
-Programmet kan generera text som påminner om träningsmaterialet, exempelvis Moby Dick. Genom att justera k-värdet kan man kontrollera hur mycket sammanhang eller slump programmet bevarar – små värden ger mer slumpmässig text, medan större värden ger mer sammanhängande meningar. 
-Körningen sker med kommandot:
-./slm <k> <filnamn> <textlängd>
+Results:
+The program successfully generates text that resembles the training data, such as *Moby Dick*. By adjusting the parameter *k*, the balance between randomness and coherence can be controlled—smaller values lead to more random output, while larger values preserve more structure.  
+The program is executed with the command:
+./slm <k> <filename> <output_length>
 
-Diskussion:
-Arbetet visar hur språkmodellering på teckennivå kan implementeras på ett enkelt men effektivt sätt. Projektet illustrerar även sambandet mellan datastruktur, sannolikhet och programmering. En tydlig kodstruktur, Makefile, dokumentation och Git-historik har säkerställt god programdesign och spårbar utveckling.
+Discussion:
+The lab illustrates how character-level language modeling can be implemented effectively in C++. It highlights the relationship between programming, probability theory, and structured data management. The use of a modular design, Makefile, and version control ensures good programming practices and reproducibility.
 
-Slutsats:
-Laborationen uppfyller samtliga krav och visar på förståelse för grundläggande språkmodellering och programutveckling i C++.
+Conclusion:
+The project fulfills all requirements for Lab 5 and demonstrates a solid understanding of basic language modeling, probability, and structured software development in C++.
