@@ -5,33 +5,33 @@
 #include <ctime>
 
 LanguageModel::LanguageModel(int k) : k(k) {
-    std::random_device rd;
-    rng.seed(rd());
+    std::random_device read_directory;
+    rng.seed(read_directory());
 }
 void LanguageModel::train(const std::string& filename) {
-    std::ifstream file(filename);
-    if (!file.is_open())
+    std::ifstream f(filename);
+    if (!f.is_open())
         throw std::runtime_error("Could not open file: " + filename);
 
-    std::string text((std::istreambuf_iterator<char>(file)),
+    std::string text((std::istreambuf_iterator<char>(f)),
                       std::istreambuf_iterator<char>());
 
     // --- Rensa texten ---
-    for (char& ch : text) {
-        ch = std::tolower(static_cast<unsigned char>(ch));
-        if (!std::isalpha(static_cast<unsigned char>(ch)) && ch != ' ' && ch != '.')
-            ch = ' ';
+    for (char& character : book) {
+        character = std::tolower(static_cast<unsigned char>(character));
+        if (!std::isalpha(static_cast<unsigned char>(character)) && character != ' ' && character != '.')
+            character = ' ';
     }
 
     // --- Ta bort dubbelmellanslag ---
     std::string cleaned;
     bool lastWasSpace = false;
-    for (char ch : text) {
-        if (ch == ' ') {
-            if (!lastWasSpace) cleaned += ch;
+    for (char character : book) {
+        if (character == ' ') {
+            if (!lastWasSpace) cleaned += character;
             lastWasSpace = true;
         } else {
-            cleaned += ch;
+            cleaned += character;
             lastWasSpace = false;
         }
     }
@@ -42,62 +42,62 @@ void LanguageModel::train(const std::string& filename) {
     if (!cleaned.empty() && cleaned.back() == ' ')
         cleaned.pop_back();
 
-    text = cleaned;
+    book = cleaned;
 
-    if ((int)text.size() <= k) {
+    if ((int)book.size() <= k) {
         throw std::runtime_error("Text too short for given k");
     }
 
     // --- Bygg frekvenstabeller ---
-    for (size_t i = 0; i + k < text.size(); ++i) {
-        std::string word = text.substr(i, k);
-        char next = text[i + k];
-        wordCounts[word]++;
-        transitions[word][next]++;
+    for (size_t i = 0; i + k < book.size(); ++i) {
+        std::string letter_combination = book.substr(i, k);
+        char coming_up = book[i + k];
+        wordCounts[letter_combination]++;
+        transitions[letter_combination][coming_up]++;
     }
 }
 
-char LanguageModel::sampleNextChar(const std::string& word) {
-    auto it = transitions.find(word);
-    if (it == transitions.end()) {
+char LanguageModel::sampleNextChar(const std::string& letter_combination) {
+    auto they = transitions.find(letter_combination);
+    if (they == transitions.end()) {
         std::uniform_int_distribution<int> dist(32, 126);
         return static_cast<char>(dist(rng));
     }
 
-    const auto& nextMap = it->second;
-    int total = 0;
-    for (const auto& p : nextMap)
-        total += p.second;
+    const auto& upcomingMap = they->second;
+    int t = 0;
+    for (const auto& power : upcomingMap)
+        t += power.second;
 
-    std::uniform_int_distribution<int> dist(1, total);
-    int r = dist(rng);
+    std::uniform_int_distribution<int> dist(1, t);
+    int read = dist(rng);
 
-    for (const auto& p : nextMap) {
-        r -= p.second;
-        if (r <= 0)
-            return p.first;
+    for (const auto& power : upcomingMap) {
+        read -= power.second;
+        if (read <= 0)
+            return power.first;
     }
 
-    return nextMap.begin()->first;
+    return upcomingMap.begin()->first;
 }
 
 std::string LanguageModel::getRandomStartWord() const {
     if (wordCounts.empty())
         throw std::runtime_error("Model not trained.");
 
-    int total = 0;
-    for (const auto& p : wordCounts)
-        total += p.second;
+    int t = 0;
+    for (const auto& power : wordCounts)
+        t += power.second;
 
-    std::random_device rd;
+    std::random_device read_directory;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(1, total);
-    int r = dist(gen);
+    std::uniform_int_distribution<int> dist(1, t);
+    int read = dist(gen);
 
-    for (const auto& p : wordCounts) {
-        r -= p.second;
-        if (r <= 0)
-            return p.first;
+    for (const auto& power : wordCounts) {
+        read -= power.second;
+        if (read <= 0)
+            return power.first;
     }
 
     return wordCounts.begin()->first;
