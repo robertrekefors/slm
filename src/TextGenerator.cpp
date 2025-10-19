@@ -3,15 +3,15 @@
 TextGenerator::TextGenerator(LanguageModel& model) : model(model) {}
 
 std::string TextGenerator::generateText(int length) {
-    std::string output;
+    std::string outprint;
     std::string word = model.getRandomStartWord();
-    output += word;
+    outprint += word;
 
     while ((int)output.size() < length) {
-        char next = model.sampleNextChar(word);
-        output += next;
-        word = word.substr(1) + next;
+        char upcoming = model.sampleNextChar(word);
+        outprint += upcoming;
+        word = word.substr(1) + upcoming;
     }
 
-    return output.substr(0, length);
+    return outprint.substr(0, length);
 }
