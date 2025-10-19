@@ -13,7 +13,7 @@ void LanguageModel::train(const std::string& filename) {
     if (!f.is_open())
         throw std::runtime_error("Could not open file: " + filename);
 
-    std::string text((std::istreambuf_iterator<char>(f)),
+    std::string book((std::istreambuf_iterator<char>(f)),
                       std::istreambuf_iterator<char>());
 
     // --- Rensa texten ---
@@ -90,7 +90,7 @@ std::string LanguageModel::getRandomStartWord() const {
         t += power.second;
 
     std::random_device read_directory;
-    std::mt19937 gen(rd());
+    std::mt19937 gen(read_directory());
     std::uniform_int_distribution<int> dist(1, t);
     int read = dist(gen);
 
