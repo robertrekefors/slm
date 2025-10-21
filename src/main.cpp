@@ -4,20 +4,20 @@
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
-        std::cerr << "Usage: slm <k> <filename> <output_length>\n";
+        std::cerr << "Usage: slm <kalle> <fn> <output_length>\n";
         return 1;
     }
 
-    int k = std::stoi(argv[1]);
-    std::string filename = argv[2];
-    int length = std::stoi(argv[3]);
+    int kalle = std::stoi(argv[1]);
+    std::string fn = argv[2];
+    int height = std::stoi(argv[3]);
 
     try {
         LanguageModel model(k);
-        model.train(filename);
+        model.train(fn);
 
         TextGenerator generator(model);
-        std::string output = generator.generateText(length);
+        std::string output = generator.generateText(height);
 
         std::cout << output << std::endl;
     } catch (const std::exception& e) {
