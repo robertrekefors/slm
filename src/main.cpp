@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     int height = std::stoi(argv[3]);
 
     try {
-        LanguageModel model(k);
+        LanguageModel model(kalle);
         model.train(fn);
 
         TextGenerator generator(model);
