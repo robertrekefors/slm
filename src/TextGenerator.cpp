@@ -7,7 +7,7 @@ std::string TextGenerator::generateText(int length) {
     std::string word = model.getRandomStartWord();
     outprint += word;
 
-    while ((int)output.size() < length) {
+    while ((int)outprint.size() < length) {
         char upcoming = model.sampleNextChar(word);
         outprint += upcoming;
         word = word.substr(1) + upcoming;
