@@ -1,20 +1,26 @@
 Lab 5 – Small Language Model
 Course: Bachelor Programming Course
 Author: Robert Rekefors
+Date: 2025-10-17
+Version: Final submission
 
 Purpose:
 The purpose of this lab was to implement a simple probabilistic language model in C++ that analyzes text data and generates new text with similar statistical properties. The project demonstrates how random processes and data structures can be combined to produce text generation based on probability.
 
 Method:
 The program is based on k-grams, which are sequences of k consecutive characters in the input text. For each k-gram, the frequency of following characters is calculated and stored. These frequencies are then used to generate new text through stochastic sampling based on the observed probabilities.
+
 The code is organized into two main classes:
 - LanguageModel: builds frequency tables and probability distributions.
 - TextGenerator: generates new text based on the model.
+
 A Makefile is used to automate compilation, and Git/GitHub are used for version control.
 
 Results:
-The program successfully generates text that resembles the training data, such as *Moby Dick*. By adjusting the parameter *k*, the balance between randomness and coherence can be controlled—smaller values lead to more random output, while larger values preserve more structure.  
+The program successfully generates text that resembles the training data, such as *Moby Dick*. By adjusting the parameter *k*, the balance between randomness and coherence can be controlled—smaller values lead to more random output, while larger values preserve more structure.
+
 The program is executed with the command:
+```bash
 ./slm <k> <filename> <output_length>
 
 Discussion:
@@ -22,3 +28,9 @@ The lab illustrates how character-level language modeling can be implemented eff
 
 Conclusion:
 The project fulfills all requirements for Lab 5 and demonstrates a solid understanding of basic language modeling, probability, and structured software development in C++.
+
+References:
+
+    Course material, Lab 5: Small Language Model (DA4007)
+
+    Original text: Moby Dick (public domain)
