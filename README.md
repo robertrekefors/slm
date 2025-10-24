@@ -1,17 +1,16 @@
 # slm — Small Language Model
 
-**Course:** Kandidatkurs i programmering – Lab 5  
+**Course:** Programmeringstekinik II – Lab 5  
 **Author:** Robert Rekefors  
-**Date:** 2025-10-17  
-**Version:** Final submission  
+**Date:** 2025-10-24  
 
 ---
 
 ## Overview
 
-This project was created as part of the Bachelor Programming Course (Lab 5: Small Language Model).  
-It implements a simple probabilistic language model in C++ that learns character-based patterns from a text file and generates new text with similar statistical structure.  
-The purpose of the lab was to demonstrate how fundamental concepts in language modeling, randomness, and data structures can be combined in a small yet complete C++ program.
+This project was created as part of Programming techniques II (Lab 5: Small Language Model).  
+It implements a simple probabilistic language model in C++ that learns character-based patterns from a text file and generates a new text with similar statistical structure.  
+The purpose of the lab was to demonstrate how data structures, randomness and fundamental concepts in language modeling can be combined in a small yet complete C++ program.
 
 ---
 
@@ -68,5 +67,5 @@ By organizing the code into separate classes, using a Makefile for compilation, 
 the project fulfills all requirements stated in the lab instructions.
 License
 
-This project was developed for academic purposes as part of the Bachelor Programming Course (Lab 5).
+This project was developed for academic purposes as part of Programming techniques II (Lab 5).
 No external libraries or pre-trained models were used.
