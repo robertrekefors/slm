@@ -1,23 +1,22 @@
 Lab 5 – Small Language Model
-Course: Bachelor Programming Course
+Course: Programming techniques II
 Author: Robert Rekefors
-Date: 2025-10-17
-Version: Final submission
+Date: 2025-10-24
 
 Purpose:
-The purpose of this lab was to implement a simple probabilistic language model in C++ that analyzes text data and generates new text with similar statistical properties. The project demonstrates how random processes and data structures can be combined to produce text generation based on probability.
+The purpose of this lab was to implement a simple probabilistic language model in C++ that analyzes text data and generates a new text with similar statistical properties. This project demonstrates how random processes and data structures can be combined to generate text based on probability.
 
 Method:
-The program is based on k-grams, which are sequences of k consecutive characters in the input text. For each k-gram, the frequency of following characters is calculated and stored. These frequencies are then used to generate new text through stochastic sampling based on the observed probabilities.
+This program is based on k-grams, which are sequences of k consecutive characters in the input text. For each k-gram, the frequency of following characters is stored and calculated. These frequencies are then used to generate new text through a stochastic sampling based on the observed probabilities.
 
 The code is organized into two main classes:
-- LanguageModel: builds frequency tables and probability distributions.
-- TextGenerator: generates new text based on the model.
+- LanguageModel: builds probability distributions and frequency tables.
+- TextGenerator: generates new model based text.
 
 A Makefile is used to automate compilation, and Git/GitHub are used for version control.
 
 Results:
-The program successfully generates text that resembles the training data, such as *Moby Dick*. By adjusting the parameter *k*, the balance between randomness and coherence can be controlled—smaller values lead to more random output, while larger values preserve more structure.
+The program successfully generates text that resembles the training data, such as *Moby Dick*. By adjusting the parameter *k*, the balance between randomness and coherence can be controlled by smaller values that lead to more random output, while larger values preserve more structure.
 
 The program is executed with the command:
 ```bash
