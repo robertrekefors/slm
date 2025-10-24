@@ -1,6 +1,6 @@
 # slm — Small Language Model
 
-**Course:** Programmeringstekinik II – Lab 5  
+**Course:** Programmeringsteknik II – Lab 5  
 **Author:** Robert Rekefors  
 **Date:** 2025-10-24  
 
